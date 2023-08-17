@@ -1,0 +1,21 @@
+{
+    "teachers":[
+        {
+            "id":"21",
+            "password":"21-t",
+            "name":"Roy",
+            "signatures":[],
+            "courses":[]
+            
+        }
+    ],
+    "students":[
+        {
+            "id":"2165544",
+            "password":"2165544-s",
+            "name":"Nicolas",
+            "gender":"masculino",
+            "course":"6"
+        }
+    ]
+}

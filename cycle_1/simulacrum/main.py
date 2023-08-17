@@ -162,4 +162,3 @@ def menu():
     menu()
 
 menu()
-list
