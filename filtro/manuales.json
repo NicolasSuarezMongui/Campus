@@ -53,14 +53,20 @@
                     "clasificacion": 2
                 },
                 {
-                    "titulo": "Spring boot",
-                    "clasificacion": 3
+                    "titulo": "Listas enlazadas",
+                    "clasificacion": 1
                 }
             ]
         },
         "Flutter": {
-            "autor": "Carlos Blanco",
-            "paginas": "97"
+            "autor": "Daniel Blanco",
+            "paginas": "93",
+            "temas": [
+                {
+                    "titulo": "Componentes",
+                    "clasificacion": 1
+                }
+            ]
         }
     }
 }

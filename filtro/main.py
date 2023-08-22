@@ -26,7 +26,7 @@ def readString(msg: str) -> str:
     except ValueError:
         message(f"Error. el dato ingresado debe ser una cadena de texto.")
         return readString(msg)
-    
+
 def stringValidate(msg: str) -> str:
     data = readString(msg)
     while(data.strip()==''):
@@ -41,6 +41,15 @@ def rangeValidator(a: int, b: int, msg: str) -> int:
     else:
         message("Fuera de rango.")
         return rangeValidator(a, b, msg)
+
+def validarTema(data,lenguaje):
+    temas = [tema for tema in data["manuales"][lenguaje]["temas"]]
+    titulo = stringValidate("titulo")
+    while titulo in temas:
+        message("Ese tema ya existe")
+    return titulo
+
+# Auxiliar funcionts
 
 def volver():
     mainMenu()
@@ -69,24 +78,18 @@ def crearManual():
 def crearTema():
     data = openFile()
     os.system("clear")
-    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
-    for i,lenguaje in enumerate(manuales):
-        print(f"{i+1:>6}. {lenguaje}")
-    opLen = rangeValidator(1,len(manuales),"Lenguaje")
+    lenguaje = opcionLenguajes(data)
     nuevoTema = stringValidate("Tema").capitalize()
-    if "temas" in data["manuales"][manuales[opLen-1]]:
-        temas = [tema for tema in data["manuales"][manuales[opLen-1]]["temas"]]
+    if "temas" in data["manuales"][lenguaje]:
+        temas = [tema for tema in data["manuales"][lenguaje]["temas"]]
         while nuevoTema in temas:
             message("Tema ya existe")
             nuevoTema = stringValidate("Tema").capitalize()
-    clasificacion=["Básicos","Intermedios","Avanzados"]
-    for i,clasTema in enumerate(clasificacion):
-        print(f"{i+1:>6}. {clasTema}")
-    opClas = rangeValidator(1,len(clasificacion),"Clasificacion")
-    if "temas" in data["manuales"][manuales[opLen-1]]:
-        data["manuales"][manuales[opLen-1]]["temas"].append({"titulo":nuevoTema,"clasificacion":opClas})
+    opClas = opcionCalificacion()
+    if "temas" in data["manuales"][lenguaje]:
+        data["manuales"][lenguaje]["temas"].append({"titulo":nuevoTema,"clasificacion":opClas})
     else:
-        data["manuales"][manuales[opLen-1]]["temas"]=[{"titulo":nuevoTema,"clasificacion":opClas}]
+        data["manuales"][lenguaje]["temas"]=[{"titulo":nuevoTema,"clasificacion":opClas}]
     updateFile(data)
     message("Tema creado con exito")
 
@@ -100,10 +103,7 @@ def menuModificar():
 def modificarManual():
     data = openFile()
     os.system("clear")
-    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
-    for i,lenguaje in enumerate(manuales):
-        print(f"{i+1:>6}. {lenguaje}")
-    opLen = rangeValidator(1,len(manuales),"Lenguaje")
+    lenguaje = opcionLenguajes(data) 
     opcionesModificar = ["autor","paginas","cancelar"]
     for i,opcion in enumerate(opcionesModificar):
         print(f"{i+1:>6}. {opcion}")
@@ -111,10 +111,10 @@ def modificarManual():
     match opMod:
         case 1:
             autor = stringValidate("Autor")
-            data["manuales"][manuales[opLen-1]]["autor"]=autor
+            data["manuales"][lenguaje]["autor"]=autor
         case 2:
             paginas = readInt("paginas")
-            data["manuales"][manuales[opLen-1]]["paginas"]=str(paginas)
+            data["manuales"][lenguaje]["paginas"]=str(paginas)
         case 3:
             menuModificar()
     if opMod!=3:
@@ -124,31 +124,20 @@ def modificarManual():
 def modificarTema():
     data = openFile()
     os.system("clear")
-    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
-    for i,lenguaje in enumerate(manuales):
-        print(f"{i+1:>6}. {lenguaje}")
-    opLen = rangeValidator(1,len(manuales),"Lenguaje")
-    if "temas" in data["manuales"][manuales[opLen-1]]: 
-        temas = [tema for tema in data["manuales"][manuales[opLen-1]]["temas"]]
-        for i,tema in enumerate(temas):
-            print(f"{i+1:>6}. {tema['titulo']}")
-        opTema = rangeValidator(1,len(temas),"Tema")
+    lenguaje = opcionLenguajes(data)
+    if "temas" in data["manuales"][lenguaje]: 
+        mTema = opcionTemas(data,lenguaje)
         opcionesModificar = ["titulo","clasificacion","cancelar"]
         for i,opcion in enumerate(opcionesModificar):
             print(f"{i+1:>6}. {opcion}")
         opMod = rangeValidator(1,len(opcionesModificar),"Opcion")
         match opMod:
             case 1:
-                titulo = stringValidate("titulo")
-                while titulo in temas:
-                    message("Ese tema ya existe")
-                data["manuales"][manuales[opLen-1]]["temas"][opTema-1]["titulo"]=titulo
+                titulo = validarTema(data, lenguaje)
+                data["manuales"][lenguaje]["temas"][mTema]["titulo"]=titulo
             case 2:
-                clasificacion=["Básicos","Intermedios","Avanzados"]
-                for i,clasTema in enumerate(clasificacion):
-                    print(f"{i+1:>6}. {clasTema}")
-                opClas = rangeValidator(1,len(clasificacion),"Clasificacion")
-                data["manuales"][manuales[opLen-1]]["temas"][opTema-1]["clasificacion"]=opClas
+                opClas = opcionCalificacion()
+                data["manuales"][lenguaje]["temas"][mTema]["clasificacion"]=opClas
             case 3:
                 return menuModificar()
         if opMod!=3:
@@ -157,6 +146,7 @@ def modificarTema():
     else:
         message("Primero debes crear un tema")
         return menuCrear()
+
 # List Functions
 
 def menuListar():
@@ -167,26 +157,57 @@ def menuListar():
 def listarManuales():
     data = openFile()
     os.system("clear")
+    print("{:=^68}".format(f"LISTADO DE MANUALES"))
     manuales:dict = data["manuales"]
-    print(" {:^5}|{:^20}|{:^30}|{:^7}|".format("","Lenguaje","Autor","#Pg"))
-    print(" {}|{}|{}|{}|".format("-"*5,"-"*20,"-"*30,"-"*7))
+    print(" {:^6}|{:^20}|{:^30}|{:^7}|".format("","Lenguaje","Autor","#Pg"))
+    print(" {}|{}|{}|{}|".format("-"*6,"-"*20,"-"*30,"-"*7))
     for i, lenguaje in enumerate(manuales.keys()):
-        print("|{:^5}|{:^20}|{:^30}|{:^7}|".format(str(i+1),lenguaje,manuales[lenguaje]["autor"],manuales[lenguaje]["paginas"]))
+        print("|{:^6}|{:^20}|{:^30}|{:^7}|".format(str(i+1) if (i+1)>=10 else "0"+str(i+1),lenguaje,manuales[lenguaje]["autor"],manuales[lenguaje]["paginas"]))
+    print("="*68)
     message("")
 
 def listarTemas():
     data = openFile()
     os.system("clear")
+    print("{:=^56}".format(f"LISTADO DE TEMAS"))
     manuales:dict = data["manuales"]
     idx=1
-    print(" {:^5}|{:^20}|{:^5}|{:^20}|".format("","Titulo","Cls","Lenguaje"))
-    print(" {}|{}|{}|{}|".format("-"*5,"-"*20,"-"*5,"-"*20))
+    print(" {:^6}|{:^20}|{:^5}|{:^20}|".format("","Titulo","Cls","Lenguaje"))
+    print(" {}|{}|{}|{}|".format("-"*6,"-"*20,"-"*5,"-"*20))
     for k,v in manuales.items():
-        for tema in v["temas"]:
-            print("|{:^5}|{:^20}|{:^5}|{:^20}|".format(str(idx),tema["titulo"],str(tema["clasificacion"]),k))
-            idx+=1
+        if "temas" in v:
+            for tema in v["temas"]:
+                print("|{:^6}|{:^20}|{:^5}|{:^20}|".format(str(idx) if idx>=10 else "0"+str(idx),tema["titulo"],str(tema["clasificacion"]),k))
+                idx+=1
+    print("="*56)
     message("")
 
+def opcionLenguajes(data:dict) -> str:
+    print("{:=^40}".format(f"LENGUAJES"))
+    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
+    for i,lenguaje in enumerate(manuales):
+        print(f"{i+1:>6}. {lenguaje}")
+    print("="*40)
+    op = rangeValidator(1,len(manuales),"Lenguaje")
+    return manuales[op-1]
+
+def opcionTemas(data:dict,lenguaje:str) -> int:
+    print("{:=^40}".format(f"TEMAS"))
+    temas = [tema for tema in data["manuales"][lenguaje]["temas"]]
+    for i,tema in enumerate(temas):
+        print(f"{i+1:>6}. {tema['titulo']}")
+    print("="*40)        
+    op = rangeValidator(1,len(temas),"Tema")
+    return op-1
+
+def opcionCalificacion() -> int:
+    print("{:=^40}".format(f"CLASIFICACION"))
+    clasificacion=["Básicos","Intermedios","Avanzados"]
+    for i,clasTema in enumerate(clasificacion):
+        print(f"{i+1:>6}. {clasTema}")
+    print("="*40)
+    op = rangeValidator(1,len(clasificacion),"Clasificacion")
+    return op
 # Delete Functions
 
 def menuEliminar():
@@ -197,28 +218,20 @@ def menuEliminar():
 def eliminarManual():
     data:dict = openFile()
     os.system("clear")
-    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
-    for i,lenguaje in enumerate(manuales):
-        print(f"{i+1:>6}. {lenguaje}")
-    opLen = rangeValidator(1,len(manuales),"Lenguaje")
-    data["manuales"]
-    del data["manuales"][manuales[opLen-1]]
+    lenguaje = opcionLenguajes(data)
+    del data["manuales"][lenguaje]
     updateFile(data)
     message("Manual eliminado con exito")
 
 def eliminarTema():
     data = openFile()
     os.system("clear")
-    manuales = [lenguaje for lenguaje,temas in data["manuales"].items()]
-    for i,lenguaje in enumerate(manuales):
-        print(f"{i+1:>6}. {lenguaje}")
-    opLen = rangeValidator(1,len(manuales),"Lenguaje")
-    if "temas" in data["manuales"][manuales[opLen-1]]:
-        temas = [tema for tema in data["manuales"][manuales[opLen-1]]["temas"]]
-        for i,tema in enumerate(temas):
-            print(f"{i+1:>6}. {tema['titulo']}")
-        opTema = rangeValidator(1,len(temas),"Tema")
-        data["manuales"][manuales[opLen-1]]["temas"].pop(opTema-1)
+    lenguaje = opcionLenguajes(data)
+    if "temas" in data["manuales"][lenguaje]:
+        opTema = opcionTemas(data,lenguaje)
+        data["manuales"][lenguaje]["temas"].pop(opTema-1)
+        if len(data["manuales"][lenguaje]["temas"])==0:
+            data["manuales"][lenguaje].pop("temas")
         updateFile(data)
         message("Tema eliminado con exito")
     else:
@@ -233,13 +246,14 @@ def generarTXT():
     for lenguaje in data["manuales"].keys():
         c1,c2,c3=0,0,0
         res+=f"Manual {lenguaje}:\n"
-        for tema in data["manuales"][lenguaje]["temas"]:
-            if tema["clasificacion"]==1:
-                c1+=1
-            if tema["clasificacion"]==2:
-                c2+=1
-            if tema["clasificacion"]==3:
-                c3+=1
+        if "temas" in data["manuales"][lenguaje]:
+            for tema in data["manuales"][lenguaje]["temas"]:
+                if tema["clasificacion"]==1:
+                    c1+=1
+                if tema["clasificacion"]==2:
+                    c2+=1
+                if tema["clasificacion"]==3:
+                    c3+=1
         res+=f"\tTemas Básicos: {c1}\n\tTemas Intermedios: {c2}\n\tTemas Avanzados: {c3}\n"
     with open("datos.txt","w",encoding="utf-8") as file:
         file.write(res)
@@ -247,9 +261,10 @@ def generarTXT():
 
 def menu(options:list, functions:dict, title:str):
     os.system("clear")
-    print("{:*^40}".format(f"MENU {title}"))
+    print("{:=^40}".format(f"MENU {title}"))
     for i,option in enumerate(options):
         print(f"{i+1:>6}. {option}")
+    print("="*40)
     op = rangeValidator(1,len(options),"Opción")
     if op == len(options):
         print("\nFin del programa\n")
