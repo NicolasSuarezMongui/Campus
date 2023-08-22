@@ -1,0 +1,66 @@
+{
+    "manuales": {
+        "Python": {
+            "autor": "Roy H Llamas",
+            "paginas": "65",
+            "temas": [
+                {
+                    "titulo": "Algoritmos",
+                    "clasificacion": 1
+                },
+                {
+                    "titulo": "Modularidad",
+                    "clasificacion": 2
+                },
+                {
+                    "titulo": "Archivos JSON",
+                    "clasificacion": 3
+                },
+                {
+                    "titulo": "Polimorfismo",
+                    "clasificacion": 3
+                }
+            ]
+        },
+        "JavaScript": {
+            "autor": "Vermen Ayala",
+            "paginas": "83",
+            "temas": [
+                {
+                    "titulo": "Variables",
+                    "clasificacion": 1
+                },
+                {
+                    "titulo": "Destructuracion",
+                    "clasificacion": 2
+                },
+                {
+                    "titulo": "Bases de Datos",
+                    "clasificacion": 3
+                },
+                {
+                    "titulo": "Funciones",
+                    "clasificacion": 2
+                }
+            ]
+        },
+        "Java": {
+            "autor": "Brayan Suarez",
+            "paginas": "89",
+            "temas": [
+                {
+                    "titulo": "Arboles binarios",
+                    "clasificacion": 2
+                },
+                {
+                    "titulo": "Spring boot",
+                    "clasificacion": 3
+                }
+            ]
+        },
+        "Flutter": {
+            "autor": "Carlos Blanco",
+            "paginas": "97"
+        }
+    }
+}

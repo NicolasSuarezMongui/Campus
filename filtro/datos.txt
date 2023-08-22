@@ -1,0 +1,12 @@
+Manual Python:
+	Temas Básicos: 1
+	Temas Intermedios: 1
+	Temas Avanzados: 2
+Manual JavaScript:
+	Temas Básicos: 1
+	Temas Intermedios: 2
+	Temas Avanzados: 1
+Manual Java:
+	Temas Básicos: 0
+	Temas Intermedios: 1
+	Temas Avanzados: 1
