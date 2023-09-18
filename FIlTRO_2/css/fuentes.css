@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Bouncy-Black-PERSONAL_USE_ONLY;
+    src: url(fonts/bouncy_2/Bouncy-Black-PERSONAL_USE_ONLY.otf);
+}
+
+@font-face {
+    font-family: Bouncy-Thin-PERSONAL_USE_ONLY;
+    src: url(fonts/bouncy_2/Bouncy-Thin-PERSONAL_USE_ONLY.otf);
+}
+
+@font-face {
+    font-family: Bouncy-PERSONAL_USE_ONLY;
+    src: url(fonts/bouncy_2/Bouncy-PERSONAL_USE_ONLY.otf);
+}
+
+@font-face {
+    font-family: Abalone;
+    src: url(fonts/abalone_smile/Abalone\ Smile.otf);
+}

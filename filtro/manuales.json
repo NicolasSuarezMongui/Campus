@@ -55,15 +55,15 @@
             ]
         },
         "Flutter": {
-            "autor": "Daniel Blanco",
-            "paginas": "93",
+            "autor": "Luis Corredor",
+            "paginas": "98",
             "temas": [
                 {
                     "titulo": "Componentes",
-                    "clasificacion": 1
+                    "clasificacion": 2
                 },
                 {
-                    "titulo": "Connect firebase",
+                    "titulo": "Firebase",
                     "clasificacion": 3
                 }
             ]

@@ -1,0 +1,85 @@
+{
+    "Departamentos": [
+        {
+            "idDep": 1,
+            "nomDepartamento": "Santander",
+            "Ciudades": [
+                {
+                    "idCiudad": 1,
+                    "nomCiudad": "Bucaramanga",
+                    "imagen": "bucaramanga.jpg",
+                    "coordenadas": {
+                        "lat": 4,
+                        "lon": 72
+                    }
+                },
+                {
+                    "idCiudad": 2,
+                    "nomCiudad": "Barrancabermeja",
+                    "imagen": "barranca.jpg",
+                    "coordenadas": {
+                        "lat": 4,
+                        "lon": 72
+                    }
+                },
+                {
+                    "idCiudad": 6,
+                    "nomCiudad": "Barbosa",
+                    "image": "barbosa.jpg",
+                    "coordernadas": {
+                        "lat": 5,
+                        "lon": 89
+                    }
+                }
+            ]
+        },
+        {
+            "idDep": 2,
+            "nomDepartamento": "Cundinamarca",
+            "Ciudades": [
+                {
+                    "idCiudad": 3,
+                    "nomCiudad": "Bogot\u00e1",
+                    "imagen": "bogota.jpg",
+                    "coordenadas": {
+                        "lat": 4,
+                        "lon": 72
+                    }
+                },
+                {
+                    "idCiudad": 4,
+                    "nomCiudad": "Cajic\u00e1",
+                    "imagen": "cajica.jpg",
+                    "coordenadas": {
+                        "lat": 4,
+                        "lon": 72
+                    }
+                }
+            ]
+        },
+        {
+            "idDep": 3,
+            "nomDepartamento": "Boyaca",
+            "Ciudades": [
+                {
+                    "idCiudad": 7,
+                    "nomCiudad": "Moniquira",
+                    "image": "moniquira.jpg",
+                    "coordernadas": {
+                        "lat": 5,
+                        "lon": 89
+                    }
+                },
+                {
+                    "idCiudad": 8,
+                    "nomCiudad": "Tunja",
+                    "image": "tunja.jpg",
+                    "coordernadas": {
+                        "lat": 5,
+                        "lon": 89
+                    }
+                }
+            ]
+        }
+    ]
+}

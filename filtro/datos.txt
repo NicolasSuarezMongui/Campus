@@ -11,6 +11,6 @@ Manual Java:
 	Temas Intermedios: 0
 	Temas Avanzados: 1
 Manual Flutter:
-	Temas Básicos: 1
-	Temas Intermedios: 0
+	Temas Básicos: 0
+	Temas Intermedios: 1
 	Temas Avanzados: 1

@@ -1,0 +1,454 @@
+:root {
+    src: url('fonts/abalone_smile/Abalone\ Smile.otf');
+    src: url(css/fonts/bouncy_2/Bouncy-Black-PERSONAL_USE_ONLY.otf) format(truetype);
+    src: url(css/fonts/bouncy_2/Bouncy-PERSONAL_USE_ONLY.otf) format(truetype);
+    src: url(css/fonts/bouncy_2/Bouncy-Thin-PERSONAL_USE_ONLY.otf);
+}
+
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    font-family: 'Abalone';
+    background: #378DBE;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #378DBE, #17A993);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #378DBE, #17A993);
+    transition: .5s;
+    transition-delay: 1s;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav .links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 38px;
+}
+
+nav .links span {
+    margin: 0 4rem;
+}
+
+nav .links i {
+    display: none;
+}
+
+nav .links span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav .character-name {
+    width: 20%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(24, 88, 164, 0.32);
+    mix-blend-mode: normal;
+    box-shadow: inset 0px 4px 7px #073875;
+    border-radius: 10px 50px 50px 10px;
+}
+
+.menu-bar {
+    display: none;
+}
+
+.button {
+    font-size: 38px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #FBB03B;
+    border-radius: 121px;
+    width: 663px;
+    height: 480px;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.popup h1 {
+    margin-top: 0;
+    color: #3B9FFB;
+    font-weight: 500;
+    font-family: 'Bouncy-Black-PERSONAL_USE_ONLY';
+    -webkit-text-stroke: 2px white;
+    font-size: 64px;
+    text-align: center;
+}
+
+.popup .close {
+    position: absolute;
+    bottom: 50px;
+    right: 60px;
+    transition: all 200ms;
+    font-size: 40px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    margin: 0 10%;
+    text-align: center;
+}
+
+.popup .content a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #966F41;
+    font-family: 'Bouncy-Black-PERSONAL_USE_ONLY';
+    -webkit-text-stroke: 2px white;
+    font-size: 48px;
+}
+
+
+.character {
+    width: 40vw;
+    height: 85vh;
+    overflow: hidden;
+    position: absolute;
+    top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .character img {
+    object-fit: contain;
+    width: 135%;
+    height: 120%;
+    margin-top: 15em;
+}
+
+.name {
+    display: none;
+}
+
+.slide {
+    width: 60vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 38vw;
+}
+
+
+scroll-container {
+    display: -webkit-inline-box;
+    width: 100%;
+    height: 60vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    filter: drop-shadow(0px 4px 39px #124581);
+}
+
+scroll-page {
+    margin: auto 30px;
+    width: 300px;
+    height: 90%;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+scroll-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 88px;
+}
+
+scroll-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+scroll-container::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+scroll-container::-webkit-scrollbar-button:increment,
+scroll-container::-webkit-scrollbar-button {
+    display: none;
+}
+
+scroll-container::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+scroll-container::-webkit-scrollbar-thumb {
+    background-color: #6970CA;
+    border-radius: 25%;
+    border: 5em solid #D3B2FE;
+}
+
+scroll-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+scroll-page span {
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    position: absolute;
+    background-color: #063B80;
+    opacity: 0.9;
+    border-radius: 50px;
+    font-size: 48px;
+    top: 80.9%;
+    left: 0%;
+    text-align: center;
+    padding: 0 30px;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+    nav {
+        justify-content: space-evenly;
+    }
+
+    nav .logo {
+        width: 90px;
+        height: 60px;
+    }
+
+    nav .logo a img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    nav .links {
+        justify-content: space-around;
+        font-size: 30px;
+    }
+
+    nav .links span {
+        margin: 0 1rem;
+    }
+
+    .per_s {
+        margin-left: 0;
+    }
+
+    nav .character-name {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .character {
+        width: 100%;
+        height: 40vh;
+        position: static;
+    }
+
+    .container .character img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        margin-top: 1rem;
+    }
+
+    .name {
+        color: white;
+        width: 60%;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 98px;
+    }
+
+    .button{
+        font-size: 130px;
+    }
+
+    .slide {
+        position: static;
+        width: 90%;
+        height: 40vh;
+        margin: 5em;
+    }
+
+    scroll-container {
+        height: 40vh;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    nav {
+        justify-content: space-evenly;
+    }
+
+    nav .logo {
+        display: none;
+    }
+
+    nav .links {
+        position: absolute;
+        z-index: 10;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        padding-top: 10%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        background-color: #ffffff05;
+        /* background-color: rgba(255, 255, 255, .15); */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    nav .links i {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    nav .links span {
+        margin-bottom: 1rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .character {
+        width: 100%;
+        height: 60vh;
+        position: absolute;
+        top: 8%;
+    }
+
+    .container .character img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .name {
+        display: none;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 45vh;
+        margin: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+
+    .popup {
+        width: 80%;
+        height: 20%;
+    }
+
+    .popup h1 {
+        -webkit-text-stroke: 1px white;
+        font-size: 24px;
+    }
+
+    .popup .close {
+        bottom: 6%;
+        font-size: 20px;
+    }
+
+    .popup .content a {
+        -webkit-text-stroke: 1px white;
+        font-size: 18px;
+    }
+
+    scroll-container {
+        height: 45vh;
+    }
+
+    scroll-page {
+        margin: auto 10px;
+        width: 100px;
+        height: 90%;
+        position: relative;
+        float: right;
+    }
+
+    scroll-page span {
+        font-style: normal;
+        font-weight: 100;
+        position: absolute;
+        background-color: #063B80;
+        opacity: 0.9;
+        border-radius: 50px;
+        font-size: 20px;
+        top: 80.9%;
+        left: 0%;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    nav .character-name {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+
+    .menu-bar {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        font-size: 48px;
+        cursor: pointer;
+    }
+
+}

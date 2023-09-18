@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulos</title>
+    <link rel="stylesheet" href="css/estilos_cap.css">
+    <link rel="stylesheet" href="css/fuentes.css">
+    <script src="https://kit.fontawesome.com/1d780724e5.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="css/img/Capa_1.svg" alt=""></a>
+            </div>
+            <div class="links">
+                <i class="fa-solid fa-xmark close-menu"></i>
+                <span><a href="personajes.html">Personajes</a></span>
+                <span><a href="capitulos.html">Capitulos</a></span>
+                <span><a href="info.html">Informacion</a></span>
+                <span><a href="fanart.html">FanArts</a></span>
+            </div>
+            <div class="Temp dropdown" id="temporada">
+                <div class="select">
+                    <span class="selected">Temporada 1</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li id="0" class="active">Temporada 1</li>
+                    <li id="1">Temporada 2</li>
+                </ul>
+            </div>
+            <div class="menu-bar"><i class="fa-solid fa-bars"></i></div>
+        </nav>    
+    </header>
+    <div class="container">
+        <div class="info">
+            <div class="blur">
+                <span class="cap">
+                    <span class="snif">01</span>
+                    <span class="num">cap</span>
+                </span>
+                <br>
+                <span class="name-cap">ITCH TO EXPLORE</span>
+                <div class="play_button">
+                    <div class="circle-bg"></div>
+                    <div class="btn">
+                        <a href="https://www.youtube.com/watch?v=_DJvCmoXtxo" target="_blank"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="info mb">
+                <span class="snif mb">01</span>
+                <span class="num mb">cap</span>
+                <div class="play_button mb">
+                    <div class="circle-bg mb"></div>
+                    <div class="btn mb">
+                        <a href="https://www.youtube.com/watch?v=_DJvCmoXtxo" target="_blank"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+            <scroll-container>
+            </scroll-container>
+        </div>
+    </div>
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/navBar.js"></script>
+</body>
+</html>

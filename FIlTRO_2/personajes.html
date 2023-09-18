@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes</title>
+    <link rel="stylesheet" href="css/estilos_per.css">
+    <link rel="stylesheet" href="css/fuentes.css">
+    <script src="https://kit.fontawesome.com/1d780724e5.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="css/img/Capa_1.svg" alt=""></a>
+            </div>
+            <div class="links">
+                <i class="fa-solid fa-xmark close-menu"></i>
+                <span class="per_s"><a href="personajes.html">Personajes</a></span>
+                <span><a href="capitulos.html">Capitulos</a></span>
+                <span><a href="info.html">Informacion</a></span>
+                <span><a href="fanart.html">FanArts</a></span>
+            </div>
+            <div class="character-name">
+                <a class="button" href="#popup1">Kelsey</a>
+            </div>
+            <div class="menu-bar"><i class="fa-solid fa-bars"></i></div>
+        </nav>    
+    </header>
+    <div class="container">
+        <div class="character">
+            <img src="./src/img/characters/kelsey.png" alt="">
+            <div class="name">
+                <a class="button" href="#popup1">Kelsey</a>
+            </div>
+        </div>
+        <div class="slide">
+            <scroll-container>
+                <scroll-page>
+                    <span>Kelsey</span>
+                    <img id="Kelsey" src="./src/img/characters/Kelsey.jpeg" alt="">
+                </scroll-page>
+                <scroll-page>
+                    <span>J.P</span>
+                    <img id="J.P" src="./src/img/characters/jp.jpeg" alt="">
+                </scroll-page>
+                <scroll-page>
+                    <span>Omar</span>
+                    <img id="Omar" src="./src/img/characters/Omar.jpeg" alt="">
+                </scroll-page>
+                <scroll-page>
+                    <span>Craig</span>
+                    <img id="Craig" src="./src/img/characters/Craig.jpeg" alt="">
+                </scroll-page>
+                <scroll-page>
+                    <span>Mark</span>
+                    <img id="Mark" src="./src/img/characters/Mark .jpeg" alt="">
+                </scroll-page>
+                <scroll-page>
+                    <span>David</span>
+                    <img id="David" src="./src/img/characters/don_nadie.jpeg" alt="">
+                </scroll-page>
+            </scroll-container>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h1>ENCUENTRA MÁS AQUÍ</h1>
+                    <a class="close" href="#"><i class="fa-solid fa-chevron-down fa-2x"></i></a>
+                    <div class="content">
+                        <a href="https://craigofthecreek.fandom.com/wiki/Craig_Williams#Kelsey">CRAIG OF THE CREEK WIKI | FANDOM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./src/js/personajes.js"></script>
+    <script src="./src/js/navBar.js"></script>
+</body>
+</html>

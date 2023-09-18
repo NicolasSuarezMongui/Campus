@@ -1,0 +1,163 @@
+:root {
+    src: url('fonts/abalone_smile/Abalone\ Smile.otf');
+    src: url(css/fonts/bouncy_2/Bouncy-Black-PERSONAL_USE_ONLY.otf) format(truetype);
+    src: url(css/fonts/bouncy_2/Bouncy-PERSONAL_USE_ONLY.otf) format(truetype);
+    src: url(css/fonts/bouncy_2/Bouncy-Thin-PERSONAL_USE_ONLY.otf);
+}
+
+
+body {
+    min-height: 100vh;
+    background-color: #17A992;
+    font-family: 'Abalone';
+    
+}
+
+header {
+    width: 100vw;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav .links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 38px;
+    transition: 1s;
+    transition-delay: .5s;
+}
+
+nav .links i {
+    display: none;
+}
+
+nav .links span {
+    margin: 0 4rem;
+}
+
+nav .links span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-bar {
+    display: none;
+}
+
+.cont {
+    width: 25%;
+    height: 40vh;
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+    
+    nav {
+        justify-content: space-between;
+    }
+
+    nav .links {
+        font-size: 80px;
+        position: absolute;
+        z-index: 10;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        padding-top: 10%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        /* background-color: #ffffff05; */
+        background-color: rgba(255, 255, 255, .15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    nav .links i {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    nav .links span {
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+        margin-left: 100px;
+    }
+
+    .menu-bar {
+        display: block;
+        font-size: 76px;
+        margin-right: 100px;
+    }
+
+    .col {
+        flex: 1 0 35%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    nav .links {
+        position: absolute;
+        z-index: 10;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        padding-top: 10%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        background-color: #ffffff05;
+        /* background-color: rgba(255, 255, 255, .15); */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    nav .links i {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    nav .links span {
+        margin-bottom: 1rem;
+    }
+
+
+    .logo {
+        margin-left: 10%;
+    }
+
+    .menu-bar {
+        display: block;
+        font-size: 40px;
+        margin-right: 15%;
+    }
+
+    .cont {
+        margin-bottom: 10px;
+    }
+
+    .col {
+        flex: 1 0 51%;
+    }
+}
